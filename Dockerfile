@@ -9,32 +9,32 @@ RUN apk update && \
     bash \
     git \
     curl \
-    php-phar \
-    php-common \
-    php-iconv \
-    php-mcrypt \
-    php-pdo \
-    php-ctype \
-    php-openssl \
-    php-pdo_mysql \ 
-    php-mysqli \
-    php-xml \
-    php-dom \
-    php-dev \
-    php-soap \
-    php-cli \
-    php-json \
-    php-mysql \
-    php-curl \
-    php-gd \
-    php-fpm && \
+    php5-phar \
+    php5-common \
+    php5-iconv \
+    php5-mcrypt \
+    php5-pdo \
+    php5-ctype \
+    php5-openssl \
+    php5-pdo_mysql \ 
+    php5-mysqli \
+    php5-xml \
+    php5-dom \
+    php5-dev \
+    php5-soap \
+    php5-cli \
+    php5-json \
+    php5-mysql \
+    php5-curl \
+    php5-gd \
+    php5-fpm && \
   rm /var/cache/apk/*
 
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer 
 
 
-RUN sed -i 's|listen = 127.0.0.1:9000|listen = 9000|g' /etc/php/php-fpm.conf
+RUN sed -i 's|listen = 127.0.0.1:9000|listen = 9000|g' /etc/php5/php-fpm.conf
 
 EXPOSE 9000
 ENTRYPOINT ["php-fpm","-F"]
